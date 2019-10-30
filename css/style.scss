@@ -1,0 +1,203 @@
+@import 'variables';
+
+.fixed-top + .container {
+  padding-top: 120px;
+}
+
+footer {
+  padding: 80px 0;
+}
+.container-sm ~ footer .container {
+  @media (min-width: 576px) {
+    max-width: 576px;
+  }
+}
+
+a {
+  &:hover { text-decoration: none; }
+}
+
+ol, ul {
+  padding: 0;
+  list-style: none;
+}
+
+.container-sm { @include container-sm; }
+
+.btn-daangn {
+  background-color: $color-daangn;
+  border-color: $color-daangn;
+  color: #fff;
+
+  &:hover {
+    color: #fff;}
+}
+
+.btn-daangn-link { color: $color-daangn;}
+
+.page-login, .page-create-account, .page-product-list,
+.page-product-categorized-list, .page-product-registration, .page-product-description {
+  .top-header-fixed {
+    display: flex;
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: rem-calc(64);
+    z-index: 101;
+    box-shadow: 0 rem-calc(3 5) 0 rgba(0, 0, 0, 0.1);
+
+    .logo-daangn {
+      padding: rem-calc(14 12);
+
+      img { height: rem-calc(36); }
+    }
+
+    .previous-page {
+      margin: auto rem-calc(16);}
+
+    .btn-right-group {
+      margin: rem-calc(16 16) auto auto;
+
+      .ico-filter {
+        border: none;
+        background: transparent;
+      }
+
+      .material-icons {
+        font-size: rem-calc(32);
+        color: $color-text--primary;
+        margin-right: rem-calc(12);
+
+        &:last-child { margin-right: 0; }
+      }
+    }
+  }
+
+  .section-login, .section-create-account, .section-products-list,
+  .section-product-registration, .section-product-description {
+    margin-top: rem-calc(64);
+    padding-top: rem-calc(32);
+
+    .form-login {
+      margin-top: rem-calc(32);
+
+      input {
+        &::placeholder {
+          @include h6;
+          text-align: center;
+          color: $color-text--secondary;
+        }
+
+        &:hover, &:active, &:focus {
+          border-color: $color-daangn;
+          outline: 0;
+          box-shadow: 0 0 0 0.2rem rgba(255, 138, 61, 0.4);
+        }
+      }
+
+      .txt-terms {
+        @include h6;
+        margin: rem-calc(24) 0;
+        color: $color-text--secondary;
+        font-weight: 400;
+        text-align: center;
+
+        a {
+          color: $color-text--secondary;
+          text-decoration: underline $color-text--secondary;
+
+          &:hover { color: $blue-grey-500; }
+        }
+      }
+    }
+
+    .category-group {
+      .btn-outline-normal {
+        @include h6;
+        margin: rem-calc(8 6) 0 0;
+        color: $color-text--primary;
+        font-weight: 500;
+        border-color: $color-border;
+        border-radius: rem-calc(24);
+      }
+    }
+
+    .filter-car-group {
+      .nav-item {
+        @include h6;
+        margin: rem-calc(8 6) 0 0;
+        font-weight: 500;
+
+        .nav-link {
+          border: rem-calc(1) solid $color-border;
+          border-radius: rem-calc(24);
+          color: $color-text--secondary;
+        }
+
+        .active, .show {
+          color: $color-text--primary;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .filter-car-content {
+      margin-top: rem-calc(16);
+
+      .card-content {
+        padding: rem-calc(16);
+        border-radius: rem-calc(8);
+        background-color: $blue-grey-25;
+      }
+    }
+  }
+
+  .section-products-list {
+    margin-top: rem-calc(40);
+
+    .list-products-item {
+      margin: rem-calc(20) 0 0 0;
+
+      .products-item {
+        display: flex;
+        color: $color-text--primary;
+
+        .ico-product {
+          display: flex;
+          min-width: rem-calc(96);
+          max-width: rem-calc(128);
+          background-color: $blue-grey-25;
+          border-radius: rem-calc(12);
+          margin-right: rem-calc(16);
+
+          .ic-cart {
+            margin: auto;
+            font-size: rem-calc(56);
+            color: $blue-grey-100;
+          }
+        }
+
+        .info-products {
+          padding: rem-calc(4) 0;
+
+          .products-title { margin-bottom: rem-calc(6); }
+
+          .products-price {
+            margin-bottom: rem-calc(16);
+            font-weight: 700;
+          }
+          .products-sub-info {
+            @include h7;
+            color: $color-text--secondary;
+
+            li { margin-right: rem-calc(4); }
+          }
+        }
+      }
+    }
+  }
+
+  .section-categorized-list { margin-top: rem-calc(64); }
+}
