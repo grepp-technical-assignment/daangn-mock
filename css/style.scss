@@ -1,7 +1,7 @@
 $color-primary: #ff8a3d;
 $color-primary--darker: #DF732D;
 $color-primary--brighter: #FFC13D;
-$color-border: #D7E2EB;
+$color-border: #E9ECF3;
 $color-text--primary: #263747;
 $color-text--secondary: #98A8B9;
 $color-text--disabled: #CDD7E0;
@@ -178,30 +178,34 @@ footer {
     transform: translateY(-3px);
   }
   
-  .navbar-nav .nav-item {
-    & + .nav-item {
-      margin-left: 16px;
-    }
-    a, button {
-      transition: .3s;
-      display: inline-flex;
-      vertical-align: middle;
-      color: white;
-      padding: 4px 16px;
-      border-radius: 3px;
-      background-color: $color-primary;
-      border: 0;
-  
-      &:hover {
-        background-color: $color-primary--darker;
+  .navbar-nav {
+    flex-direction: row;
+    
+    .nav-item {
+      & + .nav-item {
+        margin-left: 16px;
       }
+      a, button {
+        transition: .3s;
+        display: inline-flex;
+        vertical-align: middle;
+        color: white;
+        padding: 4px 16px;
+        border-radius: 3px;
+        background-color: $color-primary;
+        border: 0;
       
-      &:focus {
-        outline: none;
-      }
-  
-      i {
-        font-size: 20px;
+        &:hover {
+          background-color: $color-primary--darker;
+        }
+      
+        &:focus {
+          outline: none;
+        }
+      
+        i {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -252,6 +256,15 @@ footer {
   
   .list-products-item {
     padding-bottom: 30px;
+  
+    @media (max-width: 767px) {
+      padding-bottom: 16px;
+      
+      & + .list-products-item {
+        border-top: 1px solid $color-border;
+        padding-top: 16px;
+      }
+    }
   }
   
   a {
@@ -259,9 +272,11 @@ footer {
     display: block;
     color: $color-text--primary;
   
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 16px -8px $color-shadow;
+    @media (min-width: 768px) {
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 16px -8px $color-shadow;
+      }
     }
   }
   
@@ -299,12 +314,37 @@ footer {
       font-weight: 700;
     }
     
-    .card-footer {
+    .text-muted {
       font-size: 14px;
       background-color: transparent;
       border-top: 0;
       padding-top: 0;
       padding-bottom: 12px;
+    }
+  
+    @media (max-width: 767px) {
+      flex-direction: row;
+      box-shadow: none;
+      
+      .card-img-top {
+        min-width: 80px;
+        max-width: 80px;
+        min-height: 80px;
+        max-height: 80px;
+      }
+      
+      .card-body {
+        padding-top: 0;
+      }
+      
+      .title {
+        min-height: unset;
+        margin-bottom: 16px;
+      }
+      
+      .text-muted {
+        padding-bottom: 0;
+      }
     }
   }
 }
