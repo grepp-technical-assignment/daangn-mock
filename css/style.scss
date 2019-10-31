@@ -1,8 +1,10 @@
 $color-primary: #ff8a3d;
-$color-primary--hover: #DF732D;
+$color-primary--darker: #DF732D;
+$color-primary--brighter: #FFC13D;
 $color-border: #D7E2EB;
-$color-text-primary: #263747;
+$color-text--primary: #263747;
 $color-text--secondary: #98A8B9;
+$color-text--disabled: #CDD7E0;
 $color-shadow: rgba(20,20,50,.12);
 $color-background: #FBFBFD;
 
@@ -19,9 +21,105 @@ a {
   }
 }
 
+select {
+  cursor: pointer;
+}
+
+.btn {
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  border-color: $color-primary;
+  
+  &:hover,
+  &:active {
+    background-color: $color-primary--darker !important;
+    border-color: $color-primary--darker !important;
+  }
+  
+  &:focus, &:active {
+    box-shadow: 0 0 0 0.2rem $color-primary--brighter !important;
+  }
+}
+
+.btn-light {
+  color: $color-primary;
+  background-color: #F7F7FB;
+  
+  &:hover,
+  &:active {
+    color: $color-primary--darker;
+    background-color: #FFEADD !important;
+    border-color: #FFEADD !important;
+  }
+  
+  &:focus, &:active {
+    color: $color-primary--darker !important;
+    background-color: #FFEADD !important;
+    border-color: #FFEADD !important;
+    box-shadow: none !important;
+  }
+}
 
 .text-muted {
   color: $color-text--secondary !important;
+}
+
+.form-group {
+  margin-bottom: 24px;
+  
+  > label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+}
+
+.form-control {
+  &::-webkit-input-placeholder { /* Edge */
+    color: $color-text--disabled;
+  }
+  
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $color-text--disabled;
+  }
+  
+  &::placeholder {
+    color: $color-text--disabled;
+  }
+}
+
+.form-check-inline {
+  margin-right: 24px;
+}
+
+.form-check-label {
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal {
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: 24px;
+    border: 0;
+  }
+  
+  .modal-title {
+    font-weight: 700;
+  }
+}
+
+.container-sm {
+  max-width: 680px;
+}
+
+.form-control {
+  border-color: $color-border;
 }
 
 .fixed-top + .container {
@@ -36,7 +134,7 @@ footer {
   color: $color-text--secondary;
   
   a {
-    color: $color-text-primary;
+    color: $color-text--primary;
     font-weight: 700;
     
     &:hover {
@@ -55,6 +153,7 @@ footer {
     max-width: 680px;
   }
 }
+
 
 .nav-global {
   background-color: white;
@@ -81,20 +180,20 @@ footer {
   
   .navbar-nav .nav-item {
     & + .nav-item {
-      margin-left: 8px;
+      margin-left: 16px;
     }
     a, button {
       transition: .3s;
       display: inline-flex;
       vertical-align: middle;
       color: white;
-      padding: 4px 12px;
+      padding: 4px 16px;
       border-radius: 3px;
       background-color: $color-primary;
       border: 0;
   
       &:hover {
-        background-color: $color-primary--hover;
+        background-color: $color-primary--darker;
       }
       
       &:focus {
@@ -106,6 +205,10 @@ footer {
       }
     }
   }
+}
+
+.nav-global-sign {
+  box-shadow: none;
 }
 
 .container-headline {
@@ -135,6 +238,10 @@ footer {
       color: $color-primary;
       background-color: $color-background;
     }
+    
+    &:focus {
+      box-shadow: none;
+    }
   }
 }
 
@@ -150,7 +257,7 @@ footer {
   a {
     transition: .3s;
     display: block;
-    color: $color-text-primary;
+    color: $color-text--primary;
   
     &:hover {
       transform: translateY(-4px);
@@ -203,8 +310,6 @@ footer {
 }
 
 .container-detail {
-  max-width: 680px;
-  
   img {
     border-radius: 3px;
   }
@@ -237,10 +342,10 @@ footer {
       color: $color-text--secondary;
       padding: 8px 0;
       border-bottom: 1px solid $color-border;
-  
+      
       span {
         display: block;
-        color: $color-text-primary;
+        color: $color-text--primary;
         font-weight: 700;
         font-size: 16px;
       }
@@ -257,4 +362,136 @@ footer {
   }
 }
 
+.btn-filter {
+  position: relative;
+  
+  &.active::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: $color-primary;
+    box-shadow: 0 0 0 2px $color-primary;
+  }
+}
 
+.modal-filter {
+  .slider {
+    display: block;
+    width: calc(100% - 16px);
+    margin: 0 8px;
+    
+    .slider-track-low,
+    .slider-track-high,
+    .slider-handle,
+    .slider-selection {
+      background-image: none;
+      box-shadow: none;
+    }
+    
+    .slider-track-low, .slider-track-high {
+      background-color: $color-border;
+    }
+    
+    .slider-handle {
+      background-color: $color-primary;
+      cursor: pointer;
+      background-image: none;
+      
+      &:hover {
+        background-color: $color-primary--darker;
+        
+        box-shadow: 0 0 0 3px $color-primary--darker;
+      }
+      
+      &:focus {
+        outline: none;
+      }
+    }
+    
+    .slider-selection {
+      background-color: $color-primary--brighter;
+      box-shadow: none;
+    }
+  }
+}
+
+.file-box input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+.file-box label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.file-box .upload-name {
+  margin-right: 12px;
+  display: inline-block;
+  padding: 9px 12px;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: $color-background;
+  border: 1px solid $color-border;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-car-smoking > label {
+  color: $color-text--secondary;
+  margin-bottom: 12px;
+}
+
+.form-item-create {
+  .btn-submit {
+    display: block;
+    margin: 80px auto 0;
+  }
+}
+
+.container-sign {
+  max-width: 400px;
+}
+
+.form-sign {
+  margin: 80px 0;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.form-headline {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.txt-terms {
+  margin-top: 56px;
+  text-align: center;
+  font-size: 14px;
+  color: $color-text--secondary;
+  
+  a {
+    color: $color-text--primary;
+    
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
