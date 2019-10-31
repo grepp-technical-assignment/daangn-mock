@@ -52,7 +52,7 @@ footer {
 
 .container-sm ~ footer .container {
   @media (min-width: 576px) {
-    max-width: 576px;
+    max-width: 680px;
   }
 }
 
@@ -61,26 +61,49 @@ footer {
   box-shadow: 0 3px 5px $color-shadow;
   padding-top: 12px;
   padding-bottom: 12px;
+  height: 71px;
   
   .navbar-brand {
-    padding-top: 3px;
-    padding-bottom: 7px;
-  }
-  
-  .navbar-nav .nav-item a {
     display: inline-flex;
-    vertical-align: middle;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 3px;
-    background-color: $color-primary;
-    
-    &:hover {
-      background-color: $color-primary--hover;
-    }
+    font-size: 20px;
+    line-height: 1;
+    color: $color-primary;
+    font-weight: 700;
     
     i {
       font-size: 20px;
+    }
+  }
+  
+  .img-brand {
+    transform: translateY(-3px);
+  }
+  
+  .navbar-nav .nav-item {
+    & + .nav-item {
+      margin-left: 8px;
+    }
+    a, button {
+      transition: .3s;
+      display: inline-flex;
+      vertical-align: middle;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 3px;
+      background-color: $color-primary;
+      border: 0;
+  
+      &:hover {
+        background-color: $color-primary--hover;
+      }
+      
+      &:focus {
+        outline: none;
+      }
+  
+      i {
+        font-size: 20px;
+      }
     }
   }
 }
@@ -176,6 +199,61 @@ footer {
       padding-top: 0;
       padding-bottom: 12px;
     }
+  }
+}
+
+.container-detail {
+  max-width: 680px;
+  
+  img {
+    border-radius: 3px;
+  }
+  
+  .product-title {
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  
+  .product-price {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    color: $color-primary;
+  }
+  
+  .list-product-information {
+    list-style: none;
+    margin-top: 24px;
+    padding: 0;
+    border-top: 1px solid $color-border;
+    font-size: 0;
+    
+    .list-item {
+      display: inline-block;
+      width: 50%;
+      font-size: 12px;
+      color: $color-text--secondary;
+      padding: 8px 0;
+      border-bottom: 1px solid $color-border;
+  
+      span {
+        display: block;
+        color: $color-text-primary;
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+  }
+  
+  .description {
+    margin-top: 40px;
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    
   }
 }
 
