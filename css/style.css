@@ -220,8 +220,7 @@ footer {
         .list-products .card .card-body {
           padding-top: 0; }
         .list-products .card .title {
-          min-height: unset;
-          margin-bottom: 16px; }
+          min-height: unset; }
         .list-products .card .text-muted {
           padding-bottom: 0; } }
 
